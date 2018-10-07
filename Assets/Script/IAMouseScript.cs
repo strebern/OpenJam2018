@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+
 public class IAMouseScript : MonoBehaviour
 {
     public float Speed = 0.05f;
@@ -14,7 +16,6 @@ public class IAMouseScript : MonoBehaviour
 
     private bool _firstTargetSelected = false;
     private bool _canLerp = false;
-
     private enum Target { Task, EndButton, TaskManager }
     private Target _currentTarget;
 
@@ -35,6 +36,12 @@ public class IAMouseScript : MonoBehaviour
     }
 
     // PUBLIC
+
+    public void ResetTarget()
+    {
+        _currentTarget = Target.TaskManager;
+        FocusTarget = selectTaskManagerTarget;
+    }
 
     // PRIVATE
 
@@ -57,6 +64,7 @@ public class IAMouseScript : MonoBehaviour
                 _currentTarget = Target.TaskManager;
                 break;
             case Target.TaskManager:
+                FindObjectOfType<TaskManagerScript>().RelocateTaskManager();
                 FocusTarget = selectProcessTarget;
                 _currentTarget = Target.Task;
                 break;

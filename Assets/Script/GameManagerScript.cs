@@ -5,13 +5,10 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour
 {
 
-    [SerializeField] GameObject mainCamera;
-    [SerializeField] TaskManagerScript taskManager;
-    [SerializeField] IAMouseScript iAMouse;
-    // [SerializeField] GameObject adManager;
-
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private TaskManagerScript taskManager;
+    [SerializeField] private IAMouseScript iAMouse;
     [SerializeField] int winTreshold;
-
 
     private Transform _cameraTransfrom;
     private Coroutine _winDelaycoroutine;
@@ -42,6 +39,7 @@ public class GameManagerScript : MonoBehaviour
         {
             WinCheck();
             taskManager.InitializeRelocate();
+            iAMouse.ResetTarget();
         }
         else
         {
@@ -86,7 +84,7 @@ public class GameManagerScript : MonoBehaviour
      //   StopCoroutine(_winDelaycoroutine);
     }
 
-    IEnumerator CheckVictoryDelay()
+    private IEnumerator CheckVictoryDelay()
     {
         while (true)
         {

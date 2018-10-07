@@ -10,6 +10,8 @@ public class TaskManagerScript : MonoBehaviour
     private Coroutine _obstructedTimerCoroutine;
     private Coroutine _putInFrontDelay;
 
+    // CORE
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.Alpha0))
@@ -17,6 +19,8 @@ public class TaskManagerScript : MonoBehaviour
             RelocateTaskManager();
         }
     }
+
+    // PUBLIC
 
     public void InitializeRelocate()
     {
@@ -61,6 +65,7 @@ public class TaskManagerScript : MonoBehaviour
         yield return new WaitForSeconds(timeBeforeRelocate);
         RelocateTaskManager();
     }
+
     private IEnumerator PutInFrontDelay()
     {
         yield return new WaitForSeconds(timeBeforeRelocate);
