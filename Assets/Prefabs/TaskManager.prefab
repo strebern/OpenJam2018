@@ -142,7 +142,6 @@ MonoBehaviour:
   SelectProcessTarget: {fileID: 4659732505674116}
   SelectDeleteTarget: {fileID: 4455259385114288}
   timeBeforeRelocate: 1
-  playerCamera: {fileID: 0}
 --- !u!212 &212153321368793718
 SpriteRenderer:
   m_ObjectHideFlags: 1

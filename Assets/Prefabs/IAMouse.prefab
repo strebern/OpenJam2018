@@ -82,9 +82,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnLerpDelay: 1
-  timeBeforeRelocate: 1
-  taskManagerScript: {fileID: 0}
-  PlayerCamera: {fileID: 0}
+  _taskManagerScript: {fileID: 0}
+  FocusTarget: {fileID: 0}
 --- !u!212 &212074974550754286
 SpriteRenderer:
   m_ObjectHideFlags: 1

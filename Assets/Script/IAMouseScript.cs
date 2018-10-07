@@ -8,20 +8,20 @@ public class IAMouseScript : MonoBehaviour
 
     [SerializeField] private float spawnLerpDelay;
 
-    public TaskManagerScript taskManagerScript;
+    public TaskManagerScript _taskManagerScript;
 
     private Transform _lerpTarget1;
     private Transform _lerpTarget2;
-    private Transform _focusTarget;
+    public Transform FocusTarget;
 
     private bool _firstTargetSelected = false;
     private bool _canLerp = false;
 
     private void Awake()
     {
-        _lerpTarget1 = taskManagerScript.SelectProcessTarget;
-        _lerpTarget2 = taskManagerScript.SelectDeleteTarget;
-        _focusTarget = _lerpTarget1;
+        _lerpTarget1 = _taskManagerScript.SelectProcessTarget;
+        _lerpTarget2 = _taskManagerScript.SelectDeleteTarget;
+        FocusTarget = _lerpTarget1;
 
         StartCoroutine(InstantiationLerpDelay());
     }
@@ -29,7 +29,6 @@ public class IAMouseScript : MonoBehaviour
     private void Update()
     {
         GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer +1;
-        taskManagerScript.IsTargetObstructed(_focusTarget);
         ChooseTarget();
         if (_canLerp)
             LerpToTarget();
@@ -38,9 +37,9 @@ public class IAMouseScript : MonoBehaviour
     private void ChooseTarget()
     {
         if (!_firstTargetSelected)
-            _focusTarget = _lerpTarget1;
+            FocusTarget = _lerpTarget1;
         else
-            _focusTarget = _lerpTarget2;
+            FocusTarget = _lerpTarget2;
 
         if (transform.position == _lerpTarget1.position)
             _firstTargetSelected = true;
@@ -50,10 +49,16 @@ public class IAMouseScript : MonoBehaviour
     private void LerpToTarget()
     {
         transform.position = new Vector3
-            (Mathf.Lerp(transform.position.x, _focusTarget.position.x, 0.05f),
-            Mathf.Lerp(transform.position.y, _focusTarget.position.y, 0.05f),
+            (Mathf.Lerp(transform.position.x, FocusTarget.position.x, 0.05f),
+            Mathf.Lerp(transform.position.y, FocusTarget.position.y, 0.05f),
             0);
     }
+
+    public Transform ReturnTarget()
+    {
+        return FocusTarget;
+    }
+
 
     IEnumerator InstantiationLerpDelay()
     {

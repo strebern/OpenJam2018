@@ -8,7 +8,6 @@ public class TaskManagerScript : MonoBehaviour {
     public Transform SelectDeleteTarget;
 
     [SerializeField] private float timeBeforeRelocate;
-    [SerializeField] private Camera playerCamera;
 
     private bool _targetIsObstructed = false;
     private bool _isRelocateCouroutineStarted = false;
@@ -19,36 +18,39 @@ public class TaskManagerScript : MonoBehaviour {
         SelectProcessTarget = SelectProcessTarget.transform;
     }
 
-    public void IsTargetObstructed(Transform targetPosition)
+    private void Update()
     {
-        var cameraTransform = playerCamera.transform.position;
-        int layer_mask = LayerMask.GetMask("Ads");
+        if (Input.GetKey(KeyCode.Alpha0))
+        {
+            RelocateTaskManager();
+        }
+    }
 
-       // Debug.DrawLine(cameraTransform, targetPosition.position);
-        if (Physics.Linecast(cameraTransform, targetPosition.position, layer_mask))
+    public void InitializeRelocate()
+    {
+        _targetIsObstructed = true;
+        if (!_isRelocateCouroutineStarted)
         {
-            _targetIsObstructed = true;
-            if (!_isRelocateCouroutineStarted)
-            {
-                _obstructedTimerCoroutine = StartCoroutine(TimeObstructedBeforeRelocate());
-                _isRelocateCouroutineStarted = true;
-            }
+            _obstructedTimerCoroutine = StartCoroutine(TimeObstructedBeforeRelocate());
+            _isRelocateCouroutineStarted = true;
         }
-        else
+    }
+
+    public void Cancelrelocate()
+    {
+        if (_isRelocateCouroutineStarted)
         {
-            if (_isRelocateCouroutineStarted)
-            {
-                StopCoroutine(_obstructedTimerCoroutine);
-                _isRelocateCouroutineStarted = false;
-            }
-            _targetIsObstructed = false;
+            StopCoroutine(_obstructedTimerCoroutine);
+            _isRelocateCouroutineStarted = false;
         }
+        _targetIsObstructed = false;
     }
 
     public void RelocateTaskManager()
     {
         Constants.Input.EffectiveLayer++;
-        transform.position = new Vector3(Random.Range(-9, 9), Random.Range(-5, 5), 0);
+        Vector3 randomPoint = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(100, Screen.width-100), Random.Range(100, Screen.height-100),10));
+        transform.position = randomPoint;
         _isRelocateCouroutineStarted = false;
         GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer;
     }
