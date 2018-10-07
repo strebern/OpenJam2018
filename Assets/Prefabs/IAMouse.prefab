@@ -81,9 +81,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 693e3656ebf6c1a4695d4e4739213148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnLerpDelay: 1
-  _taskManagerScript: {fileID: 0}
+  Speed: 0.03
+  OnTargetDistance: 0.05
   FocusTarget: {fileID: 0}
+  spawnLerpDelay: 1
+  selectProcessTarget: {fileID: 0}
+  selectDeleteTarget: {fileID: 0}
+  selectTaskManagerTarget: {fileID: 0}
 --- !u!212 &212074974550754286
 SpriteRenderer:
   m_ObjectHideFlags: 1

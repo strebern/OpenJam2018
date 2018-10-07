@@ -1,24 +1,14 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TaskManagerScript : MonoBehaviour
 {
-
-    public Transform SelectProcessTarget;
-    public Transform SelectDeleteTarget;
-
     [SerializeField] private float timeBeforeRelocate;
 
     private bool _targetIsObstructed = false;
     private bool _isRelocateCouroutineStarted = false;
     private Coroutine _obstructedTimerCoroutine;
     private Coroutine _putInFrontDelay;
-
-    private void Awake()
-    {
-        SelectProcessTarget = SelectProcessTarget.transform;
-    }
 
     private void Update()
     {
@@ -64,12 +54,14 @@ public class TaskManagerScript : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer;
     }
 
-    IEnumerator TimeObstructedBeforeRelocate()
+    // PRIVATE
+
+    private IEnumerator TimeObstructedBeforeRelocate()
     {
         yield return new WaitForSeconds(timeBeforeRelocate);
         RelocateTaskManager();
     }
-    IEnumerator PutInFrontDelay()
+    private IEnumerator PutInFrontDelay()
     {
         yield return new WaitForSeconds(timeBeforeRelocate);
         Constants.Input.EffectiveLayer++;

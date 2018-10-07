@@ -1,68 +1,85 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IAMouseScript : MonoBehaviour
 {
-
+    public float Speed = 0.05f;
+    public float OnTargetDistance = 0.05f;
+    public Transform FocusTarget;
 
     [SerializeField] private float spawnLerpDelay;
-
-    public TaskManagerScript _taskManagerScript;
-
-    private Transform _lerpTarget1;
-    private Transform _lerpTarget2;
-    public Transform FocusTarget;
+    [SerializeField] private Transform selectProcessTarget;
+    [SerializeField] private Transform selectDeleteTarget;
+    [SerializeField] private Transform selectTaskManagerTarget;
 
     private bool _firstTargetSelected = false;
     private bool _canLerp = false;
 
+    private enum Target { Task, EndButton, TaskManager }
+    private Target _currentTarget;
+
+    // CORE
+
     private void Awake()
     {
-        _lerpTarget1 = _taskManagerScript.SelectProcessTarget;
-        _lerpTarget2 = _taskManagerScript.SelectDeleteTarget;
-        FocusTarget = _lerpTarget1;
-
+        FocusTarget = selectProcessTarget;
+        _currentTarget = Target.Task;
         StartCoroutine(InstantiationLerpDelay());
     }
 
     private void Update()
     {
-        GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer +1;
-        ChooseTarget();
-        if (_canLerp)
-            LerpToTarget();
+        CheckIfOnTarget();
+        LerpToTarget();
+        Debug.LogFormat("State : {0}", _currentTarget);
     }
 
-    private void ChooseTarget()
+    // PUBLIC
+
+    // PRIVATE
+
+    private void CheckIfOnTarget()
     {
-        if (!_firstTargetSelected)
-            FocusTarget = _lerpTarget1;
-        else
-            FocusTarget = _lerpTarget2;
+        if (IsOnTarget())
+            ChooseNewTarget();
+    }
 
-        if (transform.position == _lerpTarget1.position)
-            _firstTargetSelected = true;
-
+    private void ChooseNewTarget()
+    {
+        switch (_currentTarget)
+        {
+            case Target.Task:
+                FocusTarget = selectDeleteTarget;
+                _currentTarget = Target.EndButton;
+                break;
+            case Target.EndButton:
+                FocusTarget = selectTaskManagerTarget;
+                _currentTarget = Target.TaskManager;
+                break;
+            case Target.TaskManager:
+                FocusTarget = selectProcessTarget;
+                _currentTarget = Target.Task;
+                break;
+        }
     }
 
     private void LerpToTarget()
     {
-        transform.position = new Vector3
-            (Mathf.Lerp(transform.position.x, FocusTarget.position.x, 0.05f),
-            Mathf.Lerp(transform.position.y, FocusTarget.position.y, 0.05f),
+        if (_canLerp)
+            transform.position = new Vector3
+            (Mathf.Lerp(transform.position.x, FocusTarget.position.x, Speed),
+            Mathf.Lerp(transform.position.y, FocusTarget.position.y, Speed),
             0);
     }
 
-    public Transform ReturnTarget()
-    {
-        return FocusTarget;
-    }
-
-
-    IEnumerator InstantiationLerpDelay()
+    private IEnumerator InstantiationLerpDelay()
     {
         yield return new WaitForSeconds(spawnLerpDelay);
         _canLerp = true;
+    }
+
+    private bool IsOnTarget()
+    {
+        return Vector3.Distance(transform.position, FocusTarget.position) < OnTargetDistance;
     }
 }
