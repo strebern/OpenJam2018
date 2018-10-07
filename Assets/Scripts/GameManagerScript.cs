@@ -17,6 +17,8 @@ public class GameManagerScript : MonoBehaviour
     private int _numberofCheckRun = 100;
     private int _pointAccount;
 
+    // CORE
+
     private void Awake()
     {
         _cameraTransfrom = mainCamera.transform;
@@ -32,7 +34,24 @@ public class GameManagerScript : MonoBehaviour
         IsTaskManagerObstructed(iAMouse.FocusTarget);
     }
 
-    public void IsTaskManagerObstructed(Transform targetPosition)
+    // PUBLIC
+
+    public bool IsTaskManagerObstructed(Transform targetPosition)
+    {
+        int layer_mask = LayerMask.GetMask("Ads") + LayerMask.GetMask("OldAds");
+        if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // PRIVATE
+
+    private void CheckIfTaskManagerObstructed(Transform targetPosition)
     {
         int layer_mask = LayerMask.GetMask("Ads");
         if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
@@ -80,7 +99,6 @@ public class GameManagerScript : MonoBehaviour
     private void Victory()
     {
         Debug.Log("YOU WIN");
-     //   StopCoroutine(_winDelaycoroutine);
     }
 
     private IEnumerator CheckVictoryDelay()
