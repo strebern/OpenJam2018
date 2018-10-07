@@ -14,11 +14,11 @@ public class GameManagerScript : MonoBehaviour
 
 
     private Transform _cameraTransfrom;
+    private Coroutine _winDelaycoroutine;
 
     private Vector3 pointChecks;
     private int _numberofCheckRun = 100;
     private int _pointAccount;
-    private bool _won = false;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(CheckVictoryDelay());
+        _winDelaycoroutine = StartCoroutine(CheckVictoryDelay());
     }
 
     private void Update()
@@ -74,7 +74,7 @@ public class GameManagerScript : MonoBehaviour
     private void Victory()
     {
         Debug.Log("YOU WIN");
-        _won = true;
+        StopCoroutine(_winDelaycoroutine);
     }
 
     IEnumerator CheckVictoryDelay()
@@ -82,8 +82,7 @@ public class GameManagerScript : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1);
-            if (!_won)
-                WinCheck();
+            WinCheck();
         }
     }
 }
