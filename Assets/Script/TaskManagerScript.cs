@@ -22,16 +22,6 @@ public class TaskManagerScript : MonoBehaviour
 
     // PUBLIC
 
-    public void InitializeRelocate()
-    {
-        _targetIsObstructed = true;
-        if (!_isRelocateCouroutineStarted)
-        {
-            _obstructedTimerCoroutine = StartCoroutine(TimeObstructedBeforeRelocate());
-            _isRelocateCouroutineStarted = true;
-        }
-    }
-
     public void PutTaskManagerInFront()
     {
         if (_putInFrontDelay != null)
@@ -59,12 +49,6 @@ public class TaskManagerScript : MonoBehaviour
     }
 
     // PRIVATE
-
-    private IEnumerator TimeObstructedBeforeRelocate()
-    {
-        yield return new WaitForSeconds(timeBeforeRelocate);
-        RelocateTaskManager();
-    }
 
     private IEnumerator PutInFrontDelay()
     {

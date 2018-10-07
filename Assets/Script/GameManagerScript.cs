@@ -38,7 +38,6 @@ public class GameManagerScript : MonoBehaviour
         if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
         {
             WinCheck();
-            taskManager.InitializeRelocate();
             iAMouse.ResetTarget();
         }
         else
