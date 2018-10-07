@@ -44,7 +44,16 @@ public class GameManagerScript : MonoBehaviour
         }
         else
         {
-            taskManager.Cancelrelocate();
+            taskManager.CancelRelocate();
+        }
+        int layer_mask2 = LayerMask.GetMask("OldAds");
+        if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
+        {
+            taskManager.PutTaskManagerInFront();
+        }
+        else
+        {
+            taskManager.CancelRelocate();
         }
     }
 
@@ -60,7 +69,6 @@ public class GameManagerScript : MonoBehaviour
             if (Physics.Linecast(_cameraTransfrom.position, pointChecks, layer_mask))
             {
                 _pointAccount++;
-                Debug.Log(_pointAccount);
             }
 
             checkIteration++;

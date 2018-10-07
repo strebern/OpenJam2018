@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskManagerScript : MonoBehaviour {
+public class TaskManagerScript : MonoBehaviour
+{
 
     public Transform SelectProcessTarget;
     public Transform SelectDeleteTarget;
@@ -12,6 +13,7 @@ public class TaskManagerScript : MonoBehaviour {
     private bool _targetIsObstructed = false;
     private bool _isRelocateCouroutineStarted = false;
     private Coroutine _obstructedTimerCoroutine;
+    private Coroutine _putInFrontDelay;
 
     private void Awake()
     {
@@ -36,7 +38,15 @@ public class TaskManagerScript : MonoBehaviour {
         }
     }
 
-    public void Cancelrelocate()
+    public void PutTaskManagerInFront()
+    {
+        Debug.Log("infront");
+        if (_putInFrontDelay != null)
+            StopCoroutine(_putInFrontDelay);
+        _putInFrontDelay = StartCoroutine(PutInFrontDelay());
+    }
+
+    public void CancelRelocate()
     {
         if (_isRelocateCouroutineStarted)
         {
@@ -49,7 +59,7 @@ public class TaskManagerScript : MonoBehaviour {
     public void RelocateTaskManager()
     {
         Constants.Input.EffectiveLayer++;
-        Vector3 randomPoint = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(100, Screen.width-100), Random.Range(100, Screen.height-100),10));
+        Vector3 randomPoint = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(100, Screen.width - 100), Random.Range(100, Screen.height - 100), 10));
         transform.position = randomPoint;
         _isRelocateCouroutineStarted = false;
         GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer;
@@ -59,5 +69,11 @@ public class TaskManagerScript : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeBeforeRelocate);
         RelocateTaskManager();
+    }
+    IEnumerator PutInFrontDelay()
+    {
+        yield return new WaitForSeconds(timeBeforeRelocate);
+        Constants.Input.EffectiveLayer++;
+        GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer;
     }
 }
