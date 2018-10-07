@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class AdInstantiator : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class AdInstantiator : MonoBehaviour
     {
         GameObject go = Instantiate(adPrefab);
         go.AddComponent<Ad>();
+        go.layer = 8; // le layer "ads", a refaire en plus clair
         Ad ad = go.GetComponent<Ad>();
         ad.Window = adsList.GetRandomAd();
         ad.Build();

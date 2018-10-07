@@ -28,6 +28,7 @@ public class IAMouseScript : MonoBehaviour
 
     private void Update()
     {
+        GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer +1;
         taskManagerScript.IsTargetObstructed(_focusTarget);
         ChooseTarget();
         if (_canLerp)

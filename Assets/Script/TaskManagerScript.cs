@@ -24,6 +24,7 @@ public class TaskManagerScript : MonoBehaviour {
         var cameraTransform = playerCamera.transform.position;
         int layer_mask = LayerMask.GetMask("Ads");
 
+       // Debug.DrawLine(cameraTransform, targetPosition.position);
         if (Physics.Linecast(cameraTransform, targetPosition.position, layer_mask))
         {
             _targetIsObstructed = true;
@@ -46,8 +47,10 @@ public class TaskManagerScript : MonoBehaviour {
 
     public void RelocateTaskManager()
     {
+        Constants.Input.EffectiveLayer++;
         transform.position = new Vector3(Random.Range(-9, 9), Random.Range(-5, 5), 0);
         _isRelocateCouroutineStarted = false;
+        GetComponentInChildren<SpriteRenderer>().sortingOrder = Constants.Input.EffectiveLayer;
     }
 
     IEnumerator TimeObstructedBeforeRelocate()
