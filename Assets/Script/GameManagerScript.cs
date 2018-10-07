@@ -27,7 +27,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
-        _winDelaycoroutine = StartCoroutine(CheckVictoryDelay());
+       // _winDelaycoroutine = StartCoroutine(CheckVictoryDelay());
     }
 
     private void Update()
@@ -40,6 +40,7 @@ public class GameManagerScript : MonoBehaviour
         int layer_mask = LayerMask.GetMask("Ads");
         if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
         {
+            WinCheck();
             taskManager.InitializeRelocate();
         }
         else
@@ -82,7 +83,7 @@ public class GameManagerScript : MonoBehaviour
     private void Victory()
     {
         Debug.Log("YOU WIN");
-        StopCoroutine(_winDelaycoroutine);
+     //   StopCoroutine(_winDelaycoroutine);
     }
 
     IEnumerator CheckVictoryDelay()

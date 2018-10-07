@@ -40,7 +40,6 @@ public class TaskManagerScript : MonoBehaviour
 
     public void PutTaskManagerInFront()
     {
-        Debug.Log("infront");
         if (_putInFrontDelay != null)
             StopCoroutine(_putInFrontDelay);
         _putInFrontDelay = StartCoroutine(PutInFrontDelay());
