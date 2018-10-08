@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 
@@ -8,6 +9,8 @@ public class IAMouseScript : MonoBehaviour
     public float Speed = 0.05f;
     public float OnTargetDistance = 0.05f;
     public Transform FocusTarget;
+
+    public UnityEvent LoseGame;
 
     [SerializeField] private float spawnLerpDelay;
     [SerializeField] private GameObject loseScreen;
@@ -61,6 +64,7 @@ public class IAMouseScript : MonoBehaviour
                 break;
             case Target.EndButton:
                 FocusTarget = selectTaskManagerTarget;
+                LoseGame.Invoke();
                 loseScreen.SetActive(true);
                 _currentTarget = Target.TaskManager;
                 break;

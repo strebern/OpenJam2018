@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
@@ -9,9 +9,15 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private IAMouseScript iAMouse;
     [SerializeField] private AdInstantiator adManager;
     [SerializeField] private Firewall fireWall;
+    [SerializeField] private FirewallPopup fireWallPopup;
+
 
     [SerializeField] private int _gameTimer;
     [SerializeField] int winTreshold;
+
+    public UnityEvent LaunchGame;
+    public UnityEvent StartGame;
+    public UnityEvent WinGame;
 
     private Transform _cameraTransfrom;
     private Coroutine _winDelaycoroutine;
@@ -25,10 +31,12 @@ public class GameManagerScript : MonoBehaviour
     private void Awake()
     {
         _cameraTransfrom = mainCamera.transform;
+        DisableControls();
     }
 
     private void Start()
     {
+        LaunchGame.Invoke();
        StartCoroutine(ControlActivationDelay());
     }
 
@@ -93,11 +101,21 @@ public class GameManagerScript : MonoBehaviour
     private void Victory()
     {
         Debug.Log("YOU WIN");
+        WinGame.Invoke();
     }
 
-    private void Defeat()
+    private void EnableControls()
     {
+        adManager.enabled = true;
+        fireWall.enabled = true;
+        fireWallPopup.enabled = true;
+    }
 
+    public void DisableControls()
+    {
+        adManager.enabled = false;
+        fireWall.enabled = false;
+        fireWallPopup.enabled = false;
     }
 
     private IEnumerator CheckVictoryDelay()
@@ -112,8 +130,8 @@ public class GameManagerScript : MonoBehaviour
     private IEnumerator ControlActivationDelay()
     {
         yield return new WaitForSeconds(20);
-        adManager.enabled = true;
-        fireWall.enabled = true;
+        EnableControls();
+        StartGame.Invoke();
     }
 
     private IEnumerator Gametimer()
