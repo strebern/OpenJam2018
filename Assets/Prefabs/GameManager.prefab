@@ -54,4 +54,5 @@ MonoBehaviour:
   mainCamera: {fileID: 1730275382488438, guid: 4a18bf4e1a7003c46b36ad5e58426656, type: 2}
   taskManager: {fileID: 0}
   iAMouse: {fileID: 0}
+  adManager: {fileID: 0}
   winTreshold: 5

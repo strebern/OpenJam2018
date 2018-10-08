@@ -11,6 +11,8 @@ public class Firewall : MonoBehaviour
     [SerializeField] private float _secondsBetweenCleanup;
     [SerializeField] private TextMeshPro adsToRemoveText;
 
+    [SerializeField] private GameObject Adcutscene;
+
     private FirewallPopup _firewallPopup;
 
     // CORE
@@ -69,20 +71,28 @@ public class Firewall : MonoBehaviour
 
     private void KillAds(List<GameObject> adsToKill)
     {
-        foreach(GameObject ad in adsToKill)
+        foreach (GameObject ad in adsToKill)
         {
             Destroy(ad);
         }
+    }
+
+    private void KillCutsceneAd(GameObject adsToKill)
+    {
+        Destroy(adsToKill);
     }
 
     private IEnumerator KillAdsRoutine()
     {
         while (Application.isPlaying)
         {
-            yield return new WaitForSeconds(2*_secondsBetweenCleanup/3);
+            yield return new WaitForSeconds(2 * _secondsBetweenCleanup / 3);
             var adsToKill = ChooseAds();
             _firewallPopup.Show();
-            yield return new WaitForSeconds(_secondsBetweenCleanup/3);
+            yield return new WaitForSeconds(_secondsBetweenCleanup / 3);
+            if (Adcutscene != null)
+                KillCutsceneAd(Adcutscene);
+            else
             KillAds(adsToKill);
             _firewallPopup.Hide();
         }

@@ -7,6 +7,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private TaskManagerScript taskManager;
     [SerializeField] private IAMouseScript iAMouse;
+    [SerializeField] private AdInstantiator adManager;
+    [SerializeField] private Firewall fireWall;
     [SerializeField] int winTreshold;
 
     private Transform _cameraTransfrom;
@@ -25,7 +27,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
-       // _winDelaycoroutine = StartCoroutine(CheckVictoryDelay());
+       StartCoroutine(ControlActivationDelay());
     }
 
     private void Update()
@@ -103,5 +105,12 @@ public class GameManagerScript : MonoBehaviour
             yield return new WaitForSeconds(1);
             WinCheck();
         }
+    }
+
+    private IEnumerator ControlActivationDelay()
+    {
+        yield return new WaitForSeconds(20);
+        adManager.enabled = true;
+        fireWall.enabled = true;
     }
 }
