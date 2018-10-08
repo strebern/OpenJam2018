@@ -55,4 +55,22 @@ MonoBehaviour:
   taskManager: {fileID: 0}
   iAMouse: {fileID: 0}
   adManager: {fileID: 0}
+  fireWall: {fileID: 0}
+  fireWallPopup: {fileID: 0}
+  _gameTimer: 240
   winTreshold: 5
+  LaunchGame:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  StartGame:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  WinGame:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

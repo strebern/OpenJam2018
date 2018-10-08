@@ -16,7 +16,6 @@ public class ScoreManager : ScriptableObject
     public void IncreaseScore(int scoreToAdd)
     {
         Score += scoreToAdd;
-        OnScoreChange.Invoke(Score);
         FindObjectOfType<WannaSpamUpdater>().UpdateScore(Score);
     }
 }
