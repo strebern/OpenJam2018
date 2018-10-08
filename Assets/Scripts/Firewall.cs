@@ -74,12 +74,9 @@ public class Firewall : MonoBehaviour
         foreach (GameObject ad in adsToKill)
         {
             Destroy(ad);
+            if (Adcutscene != null)
+                Destroy(Adcutscene);
         }
-    }
-
-    private void KillCutsceneAd(GameObject adsToKill)
-    {
-        Destroy(adsToKill);
     }
 
     private IEnumerator KillAdsRoutine()
@@ -90,9 +87,6 @@ public class Firewall : MonoBehaviour
             var adsToKill = ChooseAds();
             _firewallPopup.Show();
             yield return new WaitForSeconds(_secondsBetweenCleanup / 3);
-            if (Adcutscene != null)
-                KillCutsceneAd(Adcutscene);
-            else
             KillAds(adsToKill);
             _firewallPopup.Hide();
         }
