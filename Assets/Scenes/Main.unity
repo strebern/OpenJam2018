@@ -279,7 +279,7 @@ PlayableDirector:
     value: {fileID: 1643369872}
   - key: {fileID: 0}
     value: {fileID: 0}
-  - key: {fileID: 114106818092253234, guid: abdee49f6cd874d48b2cd8eba8d34bd2, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   - key: {fileID: 114442544762122822, guid: abdee49f6cd874d48b2cd8eba8d34bd2, type: 2}
     value: {fileID: 283456875}
@@ -578,6 +578,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114261622836797302, guid: 39d4f84bad6e9e949bdece72b1940d40,
+        type: 2}
+      propertyPath: Adcutscene
+      value: 
+      objectReference: {fileID: 1777734940}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d4f84bad6e9e949bdece72b1940d40, type: 2}
   m_IsPrefabAsset: 0
@@ -856,6 +861,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 95082657138247814, guid: e4eb3e894cc7e8845ab495db7b015aa3,
     type: 2}
   m_PrefabInternal: {fileID: 1643369870}
+--- !u!1 &1777734940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1828308298887774, guid: 9f1195d2077ae6e4790469dae8919e89,
+    type: 2}
+  m_PrefabInternal: {fileID: 899944366}
 --- !u!114 &1914614348 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114261622836797302, guid: 39d4f84bad6e9e949bdece72b1940d40,
