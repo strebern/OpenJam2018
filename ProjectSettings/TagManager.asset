@@ -44,3 +44,9 @@ TagManager:
   - name: Ads
     uniqueID: 2111441451
     locked: 0
+  - name: DesktopBar
+    uniqueID: 2461245475
+    locked: 0
+  - name: Mouse
+    uniqueID: 2384237837
+    locked: 0

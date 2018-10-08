@@ -23,7 +23,8 @@ public class AdInstantiator : MonoBehaviour
         var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         ad.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
         var distance = Vector3.Distance(FindObjectOfType<IAMouseScript>().transform.position, ad.transform.position);
-        OnAdCreation.Invoke(distance);
+        if (FindObjectOfType<GameManagerScript>().IsTaskManagerObstructed())
+            OnAdCreation.Invoke(distance);
     }
 
     private GameObject CreateAd()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private TaskManagerScript taskManager;
     [SerializeField] private IAMouseScript iAMouse;
@@ -31,15 +30,16 @@ public class GameManagerScript : MonoBehaviour
 
     private void Update()
     {
-        IsTaskManagerObstructed(iAMouse.FocusTarget);
+        CheckIfTaskManagerObstructed();
     }
 
     // PUBLIC
 
-    public bool IsTaskManagerObstructed(Transform targetPosition)
+    public bool IsTaskManagerObstructed()
     {
+        if (!iAMouse.FocusTarget) return false;
         int layer_mask = LayerMask.GetMask("Ads") + LayerMask.GetMask("OldAds");
-        if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
+        if (Physics.Linecast(_cameraTransfrom.position, iAMouse.FocusTarget.position, layer_mask))
         {
             return true;
         }
@@ -51,22 +51,12 @@ public class GameManagerScript : MonoBehaviour
 
     // PRIVATE
 
-    private void CheckIfTaskManagerObstructed(Transform targetPosition)
+    private void CheckIfTaskManagerObstructed()
     {
-        int layer_mask = LayerMask.GetMask("Ads");
-        if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
+        if (IsTaskManagerObstructed())
         {
             WinCheck();
             iAMouse.ResetTarget();
-        }
-        else
-        {
-            taskManager.CancelRelocate();
-        }
-        int layer_mask2 = LayerMask.GetMask("OldAds");
-        if (Physics.Linecast(_cameraTransfrom.position, targetPosition.position, layer_mask))
-        {
-            taskManager.PutTaskManagerInFront();
         }
         else
         {
@@ -99,6 +89,11 @@ public class GameManagerScript : MonoBehaviour
     private void Victory()
     {
         Debug.Log("YOU WIN");
+    }
+
+    private void Defeat()
+    {
+
     }
 
     private IEnumerator CheckVictoryDelay()

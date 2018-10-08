@@ -16,7 +16,7 @@ public class TaskManagerScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Alpha0))
         {
-            RelocateTaskManager();
+            //RelocateTaskManager();
         }
     }
 

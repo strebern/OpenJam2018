@@ -73,7 +73,7 @@ public class IAMouseScript : MonoBehaviour
 
     private void LerpToTarget()
     {
-        if (_canLerp)
+        if (_canLerp && FocusTarget)
             transform.position = new Vector3
             (Mathf.Lerp(transform.position.x, FocusTarget.position.x, Speed),
             Mathf.Lerp(transform.position.y, FocusTarget.position.y, Speed),
@@ -88,6 +88,9 @@ public class IAMouseScript : MonoBehaviour
 
     private bool IsOnTarget()
     {
-        return Vector3.Distance(transform.position, FocusTarget.position) < OnTargetDistance;
+        if (FocusTarget)
+            return Vector3.Distance(transform.position, FocusTarget.position) < OnTargetDistance;
+        else
+            return false;
     }
 }
