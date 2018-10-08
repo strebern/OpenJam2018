@@ -5,6 +5,9 @@ using TMPro;
 
 public class Firewall : MonoBehaviour
 {
+
+    public Material lasermat;
+
     private List<GameObject> _adList = new List<GameObject>();
     [SerializeField] private Transform _lasersTransform;
     [SerializeField] private int _maxAdToRemove;
@@ -61,7 +64,7 @@ public class Firewall : MonoBehaviour
         var lineRenderer = ad.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, ad.transform.position);
         lineRenderer.SetPosition(1, _lasersTransform.position);
-        lineRenderer.material = new Material(Shader.Find("Unlit/Texture"));
+        lineRenderer.material = lasermat;
         lineRenderer.startWidth = LineRendererPreset.startWidth;
         lineRenderer.endWidth = LineRendererPreset.endWidth;
         lineRenderer.startColor = LineRendererPreset.startColor;
