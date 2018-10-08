@@ -5,6 +5,7 @@ public class PlayerMouse : MonoBehaviour
 {
     [SerializeField] private Vector3 _offset;
     [SerializeField] private TextMeshPro _adCountText;
+    [SerializeField] private Texture2D _skullCursor;
 
     // CORE
 
@@ -14,6 +15,11 @@ public class PlayerMouse : MonoBehaviour
     }
 
     // PUBLIC
+
+    public void SetCursorToSkull()
+    {
+        Cursor.SetCursor(_skullCursor, Vector2.zero, CursorMode.Auto);
+    }
 
     public void UpdateAdCount(int adCount)
     {
