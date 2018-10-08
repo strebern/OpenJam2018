@@ -25,12 +25,14 @@ public class GameManagerScript : MonoBehaviour
     private Vector3 pointChecks;
     private int _numberofCheckRun = 100;
     private int _pointAccount;
+    public bool dontDisableControl;
 
     // CORE
 
     private void Awake()
     {
         _cameraTransfrom = mainCamera.transform;
+        if(!dontDisableControl)
         DisableControls();
     }
 

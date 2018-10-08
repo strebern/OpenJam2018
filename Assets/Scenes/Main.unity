@@ -118,12 +118,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1755308513439890, guid: c8329f26a568db34eb3048474de903c5,
     type: 2}
   m_PrefabInternal: {fileID: 532881188}
---- !u!114 &70402747 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114700558438593734, guid: c8329f26a568db34eb3048474de903c5,
-    type: 2}
-  m_PrefabInternal: {fileID: 532881188}
-  m_Script: {fileID: 11500000, guid: 6aa34d5c7aef9534db3b7d6869a0ec89, type: 3}
 --- !u!1001 &189392149
 Prefab:
   m_ObjectHideFlags: 0
@@ -174,6 +168,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a370858064cf53549afeadbfab3005e2, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &225849081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114410329644391656, guid: 124d1174d06aff8438ef45143d8c46e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 759229062}
+  m_Script: {fileID: 11500000, guid: 5d76162e285bb904796c0927274bada3, type: 3}
 --- !u!114 &236342152 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114868192442992238, guid: c157ba97161523f47b13f22fb0c52106,
@@ -654,6 +654,11 @@ Prefab:
       propertyPath: fireWallPopup
       value: 
       objectReference: {fileID: 296431221}
+    - target: {fileID: 114410329644391656, guid: 124d1174d06aff8438ef45143d8c46e0,
+        type: 2}
+      propertyPath: dontDisableControl
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 124d1174d06aff8438ef45143d8c46e0, type: 2}
   m_IsPrefabAsset: 0
@@ -936,7 +941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1216220615
 Prefab:
@@ -1196,11 +1201,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: LoseGame.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4642958526224036, guid: e4eb3e894cc7e8845ab495db7b015aa3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 5.58
@@ -1235,6 +1235,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
         type: 2}
+      propertyPath: LoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 225849081}
+    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
+        type: 2}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 70402746}
+    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
+        type: 2}
       propertyPath: selectProcessTarget
       value: 
       objectReference: {fileID: 1218041944}
@@ -1248,41 +1258,6 @@ Prefab:
       propertyPath: selectTaskManagerTarget
       value: 
       objectReference: {fileID: 302819435}
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: loseScreenScript
-      value: 
-      objectReference: {fileID: 70402747}
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: loseScreen
-      value: 
-      objectReference: {fileID: 70402746}
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: LoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: LoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: LoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1507338641}
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: LoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisableControls
-      objectReference: {fileID: 0}
-    - target: {fileID: 114128819796476684, guid: e4eb3e894cc7e8845ab495db7b015aa3,
-        type: 2}
-      propertyPath: LoseGame.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4eb3e894cc7e8845ab495db7b015aa3, type: 2}
   m_IsPrefabAsset: 0
