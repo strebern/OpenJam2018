@@ -882,6 +882,16 @@ Prefab:
       propertyPath: m_fontSizeBase
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114664804573442908, guid: 5b2f461fdb425d44e8a37a679a939a61,
+        type: 2}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664804573442908, guid: 5b2f461fdb425d44e8a37a679a939a61,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b2f461fdb425d44e8a37a679a939a61, type: 2}
   m_IsPrefabAsset: 0
