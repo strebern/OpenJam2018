@@ -51,9 +51,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14022f3faaf6d1c449c7546b17805293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adsList: {fileID: 11400000, guid: 6e786a0f9aac5004ca0e7106a03e0e94, type: 2}
+  allAds: {fileID: 11400000, guid: 6e786a0f9aac5004ca0e7106a03e0e94, type: 2}
   adPrefab: {fileID: 1240980780848520, guid: d5fb6a7e32920254d8d523c3b32b7add, type: 2}
   OnAdCreation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: AddAd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: GameObjectEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnSuccessfulAd:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 4160e1b5c62d3c74fa06b8480620ade0, type: 2}

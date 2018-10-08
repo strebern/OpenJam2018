@@ -8,7 +8,6 @@ public class ScoreManager : ScriptableObject
 
     public void IncreaseScore(float distance)
     {
-        Debug.LogFormat("Distance : {0}", distance);
         int scoreToAdd = (int)(1 / distance);
         Score += scoreToAdd;
     }

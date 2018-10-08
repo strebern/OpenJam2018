@@ -3,11 +3,12 @@ using UnityEngine.Events;
 
 public class AdInstantiator : MonoBehaviour
 {
-    public AdsList adsList;
+    public AdsList allAds;
     public GameObject adPrefab;
 
     [Header("Events")]
-    public FloatEvent OnAdCreation;
+    public GameObjectEvent OnAdCreation;
+    public FloatEvent OnSuccessfulAd;
 
     private void Update()
     {
@@ -24,7 +25,7 @@ public class AdInstantiator : MonoBehaviour
         ad.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0);
         var distance = Vector3.Distance(FindObjectOfType<IAMouseScript>().transform.position, ad.transform.position);
         if (FindObjectOfType<GameManagerScript>().IsTaskManagerObstructed())
-            OnAdCreation.Invoke(distance);
+            OnSuccessfulAd.Invoke(distance);
     }
 
     private GameObject CreateAd()
@@ -33,8 +34,9 @@ public class AdInstantiator : MonoBehaviour
         go.AddComponent<Ad>();
         go.layer = 8; // le layer "ads", a refaire en plus clair
         Ad ad = go.GetComponent<Ad>();
-        ad.Window = adsList.GetRandomAd();
+        ad.Window = allAds.GetRandomAd();
         ad.Build();
+        OnAdCreation.Invoke(go);
         return go;
     }
 }
