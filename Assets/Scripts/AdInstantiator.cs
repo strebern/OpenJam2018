@@ -6,7 +6,7 @@ public class AdInstantiator : MonoBehaviour
     [Header("Ads instanciation")]
     public int NbOfAdsInStock = 5;
     public float SecondsBetweenNewAd = 4f;
-    public float DecreaseRate = 0.03f;
+    public float DecreaseRate = 0.06f;
 
     [Header("Prefabs")]
     [SerializeField] private AdsList allAds;

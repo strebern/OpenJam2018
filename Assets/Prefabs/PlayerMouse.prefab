@@ -63,8 +63,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1910729459
+  m_SortingLayer: 3
   m_SortingOrder: 0
 --- !u!33 &33953713302086644
 MeshFilter:
@@ -119,8 +119,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -146,18 +146,18 @@ MonoBehaviour:
   checkPaddingRequired: 0
   m_isRichText: 1
   m_parseCtrlCharacters: 1
-  m_isOrthographic: 0
+  m_isOrthographic: 1
   m_isCullingEnabled: 0
   m_ignoreRectMaskCulling: 0
   m_ignoreCulling: 1
   m_horizontalMapping: 0
   m_verticalMapping: 0
   m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
+  m_geometrySortingOrder: 1
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.854839, y: 2.303468, z: 9.1444435, w: 2.0264566}
+  m_margin: {x: 9.854839, y: 2.303468, z: 8.271749, w: 0.24470067}
   m_textInfo:
     textComponent: {fileID: 114420879716187256}
     characterCount: 1
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a15fd660cb9ef4642a14c4c694c04d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 1, y: -0.8, z: 0}
+  _offset: {x: 0.8, y: 0.8, z: 0}
   _adCountText: {fileID: 114420879716187256}
 --- !u!222 &222201843768287990
 CanvasRenderer:

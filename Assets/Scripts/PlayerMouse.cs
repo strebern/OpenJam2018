@@ -8,11 +8,6 @@ public class PlayerMouse : MonoBehaviour
 
     // CORE
 
-    private void Awake()
-    {
-        GetComponent<MeshRenderer>().sortingLayerName = "Mouse";
-    }
-
     private void Update()
     {
         StickToMouse();
@@ -30,6 +25,7 @@ public class PlayerMouse : MonoBehaviour
     private void StickToMouse()
     {
         var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
         transform.position = mousePosition + _offset;
     }
 }
