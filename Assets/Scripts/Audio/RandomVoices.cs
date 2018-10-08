@@ -22,11 +22,14 @@ public class RandomVoices : MonoBehaviour
         StartCoroutine(IncrementIndex());
     }
 
-    private void PlayRandomAtIndex(int index)
+    private void PlayRandomAtIndex()
     {
-        int indexToPlay = Mathf.Clamp(index + Random.Range(-1, 1), 0, clips.Length - 1);
-        _audioSource.clip = clips[indexToPlay];
-        _audioSource.Play();
+        if (_canPlaySound)
+        {
+            int indexToPlay = Mathf.Clamp(index + Random.Range(-1, 1), 0, clips.Length - 1);
+            _audioSource.clip = clips[indexToPlay];
+            _audioSource.Play();
+        }
     }
 
     private IEnumerator PlaySoundsRoutine()

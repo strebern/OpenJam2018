@@ -147,8 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2901c24f859cfc94e9e53d8b74334189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introClip: {fileID: 0}
-  crescendoClip: {fileID: 0}
-  finalLoopClip: {fileID: 0}
-  winClip: {fileID: 0}
-  loseClip: {fileID: 0}
+  introClip: {fileID: 8300000, guid: de2f6624ecc41404ea9ec7bd2050e0b6, type: 3}
+  crescendoClip: {fileID: 8300000, guid: 8d35312e38716184997845d9934254bc, type: 3}
+  finalLoopClip: {fileID: 8300000, guid: 08cfebef7379ef14bbf8c2ffdf973ec0, type: 3}
+  winClip: {fileID: 8300000, guid: a24ee0d665c9da94193ff9d96c05827c, type: 3}
+  loseClip: {fileID: 8300000, guid: 265e51e4005dac24c9ddd70682545ca5, type: 3}
