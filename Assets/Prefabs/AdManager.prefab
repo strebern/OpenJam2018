@@ -46,7 +46,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419454037268142}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14022f3faaf6d1c449c7546b17805293, type: 3}
   m_Name: 
@@ -54,8 +54,6 @@ MonoBehaviour:
   NbOfAdsInStock: 5
   SecondsBetweenNewAd: 4
   DecreaseRate: 0.03
-  LineRendererPreset: {fileID: 120327430106586686, guid: 6b8b5899aa7f4d74780ec8f55fc5ec8f,
-    type: 2}
   allAds: {fileID: 11400000, guid: 6e786a0f9aac5004ca0e7106a03e0e94, type: 2}
   adPrefab: {fileID: 1240980780848520, guid: d5fb6a7e32920254d8d523c3b32b7add, type: 2}
   OnAdCreation:
@@ -73,11 +71,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_MethodName: 
+        m_MethodName: PlayRandomAtIndex
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

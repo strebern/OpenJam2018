@@ -164,5 +164,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d05daf23058183e42b4d7df9f330a319, type: 3}
   - {fileID: 8300000, guid: dd0b2c5a7545fc541b108fdff01a8ec9, type: 3}
   - {fileID: 8300000, guid: 8849fa108c27a9042af6cbc72b9c3b19, type: 3}
-  SecondsBetweenIncrement: 30
-  SecondsBetweenSounds: 10
+  SecondsBetweenIncrement: 20
+  SecondsBetweenSounds: 8
