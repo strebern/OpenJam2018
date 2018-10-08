@@ -32,7 +32,6 @@ public class IAMouseScript : MonoBehaviour
     {
         CheckIfOnTarget();
         LerpToTarget();
-        Debug.LogFormat("State : {0}", _currentTarget);
     }
 
     // PUBLIC
