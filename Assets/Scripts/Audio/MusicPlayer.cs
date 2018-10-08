@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
@@ -23,6 +25,11 @@ public class MusicPlayer : MonoBehaviour
     }
 
     // PUBLIC
+
+    public void StartGameMusic()
+    {
+        StartCoroutine(PlayGameMusic());
+    }
 
     public void PlayIntroMusic()
     {
@@ -55,5 +62,17 @@ public class MusicPlayer : MonoBehaviour
         _musicSource.loop = false;
         _musicSource.clip = loseClip;
         _musicSource.Play();
+    }
+
+    // PRIVATE
+
+    private IEnumerator PlayGameMusic()
+    {
+        PlayCrescendo();
+        while(_musicSource.time < _musicSource.clip.length)
+        {
+            yield return null;
+        }
+        PlayFinalLoop();
     }
 }

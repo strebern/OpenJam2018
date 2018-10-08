@@ -10,10 +10,12 @@ public class ScoreManager : ScriptableObject
     {
         int scoreToAdd = (int)(1 / distance);
         Score += scoreToAdd;
+        FindObjectOfType<WannaSpamUpdater>().UpdateScore(Score);
     }
 
     public void IncreaseScore(int scoreToAdd)
     {
         Score += scoreToAdd;
+        FindObjectOfType<WannaSpamUpdater>().UpdateScore(Score);
     }
 }
