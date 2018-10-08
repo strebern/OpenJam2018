@@ -593,6 +593,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114261622836797302, guid: 39d4f84bad6e9e949bdece72b1940d40,
+        type: 2}
+      propertyPath: lasermat
+      value: 
+      objectReference: {fileID: 2100000, guid: b7bf89d4744be72458060191f6a2657b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d4f84bad6e9e949bdece72b1940d40, type: 2}
   m_IsPrefabAsset: 0
