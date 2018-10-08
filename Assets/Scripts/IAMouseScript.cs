@@ -10,6 +10,7 @@ public class IAMouseScript : MonoBehaviour
     public Transform FocusTarget;
 
     [SerializeField] private float spawnLerpDelay;
+    [SerializeField] private GameObject loseScreen;
     [SerializeField] private Transform selectProcessTarget;
     [SerializeField] private Transform selectDeleteTarget;
     [SerializeField] private Transform selectTaskManagerTarget;
@@ -60,6 +61,7 @@ public class IAMouseScript : MonoBehaviour
                 break;
             case Target.EndButton:
                 FocusTarget = selectTaskManagerTarget;
+                loseScreen.SetActive(true);
                 _currentTarget = Target.TaskManager;
                 break;
             case Target.TaskManager:

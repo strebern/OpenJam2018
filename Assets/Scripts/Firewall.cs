@@ -71,11 +71,11 @@ public class Firewall : MonoBehaviour
 
     private void KillAds(List<GameObject> adsToKill)
     {
+        if (Adcutscene != null)
+            Destroy(Adcutscene);
         foreach (GameObject ad in adsToKill)
         {
             Destroy(ad);
-            if (Adcutscene != null)
-                Destroy(Adcutscene);
         }
     }
 
