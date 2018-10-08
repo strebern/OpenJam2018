@@ -39,7 +39,6 @@ public class Firewall : MonoBehaviour
 
     private List<GameObject> ChooseAds()
     {
-        Debug.Log("Choosing ads");
         List<GameObject> adsToKill = new List<GameObject>();
         int nbOfAdsToKill = Random.Range(1, _maxAdToRemove);
         adsToRemoveText.text = "" + nbOfAdsToKill;
@@ -62,11 +61,13 @@ public class Firewall : MonoBehaviour
         var lineRenderer = ad.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, ad.transform.position);
         lineRenderer.SetPosition(1, _lasersTransform.position);
-        lineRenderer.material = LineRendererPreset.material;
+        lineRenderer.material = new Material(Shader.Find("Unlit/Texture"));
         lineRenderer.startWidth = LineRendererPreset.startWidth;
         lineRenderer.endWidth = LineRendererPreset.endWidth;
         lineRenderer.startColor = LineRendererPreset.startColor;
         lineRenderer.endColor = LineRendererPreset.endColor;
+        lineRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        lineRenderer.receiveShadows = false;
     }
 
     private void KillAds(List<GameObject> adsToKill)
