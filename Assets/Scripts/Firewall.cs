@@ -10,6 +10,7 @@ public class Firewall : MonoBehaviour
     [SerializeField] private int _maxAdToRemove;
     [SerializeField] private float _secondsBetweenCleanup;
     [SerializeField] private TextMeshPro adsToRemoveText;
+    [SerializeField] private LineRenderer LineRendererPreset;
 
     [SerializeField] private GameObject Adcutscene;
 
@@ -57,16 +58,15 @@ public class Firewall : MonoBehaviour
 
     private void TraceLineToAd(GameObject ad)
     {
-        Debug.Log("Tracing lines");
         ad.AddComponent<LineRenderer>();
         var lineRenderer = ad.GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, ad.transform.position);
         lineRenderer.SetPosition(1, _lasersTransform.position);
-        lineRenderer.startColor = Color.blue;
-        lineRenderer.endColor = Color.blue;
-        lineRenderer.renderingLayerMask = 3;
-        lineRenderer.startWidth = 0.2f;
-        lineRenderer.endWidth = 0.2f;
+        lineRenderer.material = LineRendererPreset.material;
+        lineRenderer.startWidth = LineRendererPreset.startWidth;
+        lineRenderer.endWidth = LineRendererPreset.endWidth;
+        lineRenderer.startColor = LineRendererPreset.startColor;
+        lineRenderer.endColor = LineRendererPreset.endColor;
     }
 
     private void KillAds(List<GameObject> adsToKill)

@@ -291,7 +291,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1992330368464304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 316fb162cb05f73438035d4c78b7718b, type: 3}
   m_Name: 
@@ -300,6 +300,9 @@ MonoBehaviour:
   _maxAdToRemove: 5
   _secondsBetweenCleanup: 5
   adsToRemoveText: {fileID: 114993264259343002}
+  LineRendererPreset: {fileID: 120327430106586686, guid: 6b8b5899aa7f4d74780ec8f55fc5ec8f,
+    type: 2}
+  Adcutscene: {fileID: 0}
 --- !u!114 &114328628521226332
 MonoBehaviour:
   m_ObjectHideFlags: 1
