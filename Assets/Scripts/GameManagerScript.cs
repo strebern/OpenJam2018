@@ -9,6 +9,8 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private IAMouseScript iAMouse;
     [SerializeField] private AdInstantiator adManager;
     [SerializeField] private Firewall fireWall;
+
+    [SerializeField] private int _gameTimer;
     [SerializeField] int winTreshold;
 
     private Transform _cameraTransfrom;
@@ -113,4 +115,11 @@ public class GameManagerScript : MonoBehaviour
         adManager.enabled = true;
         fireWall.enabled = true;
     }
+
+    private IEnumerator Gametimer()
+    {
+        yield return new WaitForSeconds(_gameTimer);
+        // WIN
+    }
+
 }
