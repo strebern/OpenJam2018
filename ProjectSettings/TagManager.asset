@@ -50,3 +50,6 @@ TagManager:
   - name: Mouse
     uniqueID: 2384237837
     locked: 0
+  - name: EndGame
+    uniqueID: 2738630383
+    locked: 0
