@@ -370,6 +370,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &332247909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114037140507845062, guid: 0291905b498cb8846b527569d9fe0e4a,
+    type: 2}
+  m_PrefabInternal: {fileID: 937561238}
+  m_Script: {fileID: 11500000, guid: d14df478a893b444f8c0f85e6a0d865f, type: 3}
 --- !u!114 &501955200 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114894868553769078, guid: 3080e85ad32347a47acc4ebc34d9a195,
@@ -512,14 +518,14 @@ Prefab:
       objectReference: {fileID: 1914614348}
     - target: {fileID: 114995432929314560, guid: 4c5b98b05b939e24e9e3beb1cd0dc401,
         type: 2}
+      propertyPath: OnAdCreation.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 332247909}
+    - target: {fileID: 114995432929314560, guid: 4c5b98b05b939e24e9e3beb1cd0dc401,
+        type: 2}
       propertyPath: OnAdCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 501955200}
-    - target: {fileID: 114995432929314560, guid: 4c5b98b05b939e24e9e3beb1cd0dc401,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c5b98b05b939e24e9e3beb1cd0dc401, type: 2}
   m_IsPrefabAsset: 0
@@ -1220,10 +1226,6 @@ Prefab:
     - target: {fileID: 4274798028234674, guid: 4a15ac70bb863154c8d6d33a788c26a6, type: 2}
       propertyPath: m_RootOrder
       value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1194803613318304, guid: 4a15ac70bb863154c8d6d33a788c26a6, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a15ac70bb863154c8d6d33a788c26a6, type: 2}
