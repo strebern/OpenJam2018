@@ -27,7 +27,7 @@ public class WannaSpamUpdater : MonoBehaviour
             else
             {
                 _countdownText.fontSize = 3;
-                _countdownText.text = "FILL THE SCREEN TO WIN !!!";
+                _countdownText.text = "FILL THE SCREEN !!!";
                 _countdownStarted = false;
             }
         }
