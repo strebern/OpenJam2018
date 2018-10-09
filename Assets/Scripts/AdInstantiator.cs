@@ -40,7 +40,7 @@ public class AdInstantiator : MonoBehaviour
             var distance = Vector3.Distance(FindObjectOfType<IAMouseScript>().transform.position, ad.transform.position);
             NbOfAdsInStock--;
             OnAdCountChanged.Invoke(NbOfAdsInStock);
-            if (FindObjectOfType<GameManagerScript>().IsTaskManagerObstructed())
+            if (FindObjectOfType<GameManagerScript>().IsTaskManagerObstructed() && FindObjectOfType<IAMouseScript>().MovingToEndOrTask())
                 OnSuccessfulAd.Invoke(distance);
         }
     }

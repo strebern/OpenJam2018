@@ -46,6 +46,11 @@ public class IAMouseScript : MonoBehaviour
         FocusTarget = selectTaskManagerTarget;
     }
 
+    public bool MovingToEndOrTask()
+    {
+        return _currentTarget == Target.EndButton || _currentTarget == Target.Task;
+    }
+
     // PRIVATE
 
     private void CheckIfOnTarget()
