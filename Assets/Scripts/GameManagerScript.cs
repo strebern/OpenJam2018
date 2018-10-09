@@ -32,8 +32,7 @@ public class GameManagerScript : MonoBehaviour
     private void Awake()
     {
         _cameraTransfrom = mainCamera.transform;
-        if(!dontDisableControl)
-        DisableControls();
+      //  if(!dontDisableControl)
     }
 
     private void Start()
@@ -105,7 +104,7 @@ public class GameManagerScript : MonoBehaviour
         Debug.Log("YOU WIN");
         WinGame.Invoke();
     }
-
+    /*
     private void EnableControls()
     {
         adManager.enabled = true;
@@ -119,7 +118,7 @@ public class GameManagerScript : MonoBehaviour
         fireWall.enabled = false;
         fireWallPopup.enabled = false;
     }
-
+    */
     private IEnumerator CheckVictoryDelay()
     {
         while (true)
@@ -132,7 +131,7 @@ public class GameManagerScript : MonoBehaviour
     private IEnumerator ControlActivationDelay()
     {
         yield return new WaitForSeconds(20);
-        EnableControls();
+      //  EnableControls();
         StartGame.Invoke();
     }
 
