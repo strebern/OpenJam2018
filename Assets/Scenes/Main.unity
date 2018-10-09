@@ -696,7 +696,7 @@ Prefab:
     - target: {fileID: 114410329644391656, guid: 124d1174d06aff8438ef45143d8c46e0,
         type: 2}
       propertyPath: dontDisableControl
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114410329644391656, guid: 124d1174d06aff8438ef45143d8c46e0,
         type: 2}
@@ -1431,6 +1431,10 @@ Prefab:
     - target: {fileID: 4053281444865652, guid: 009278c054b0b8c43ae6fe7532294ca4, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542822574297764, guid: 009278c054b0b8c43ae6fe7532294ca4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009278c054b0b8c43ae6fe7532294ca4, type: 2}
