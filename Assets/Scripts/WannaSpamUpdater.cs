@@ -29,6 +29,7 @@ public class WannaSpamUpdater : MonoBehaviour
                 _countdownText.fontSize = 3;
                 _countdownText.text = "FILL THE SCREEN !!!";
                 _countdownStarted = false;
+                FindObjectOfType<AdInstantiator>().NbOfAdsInStock = 1000;
             }
         }
     }
