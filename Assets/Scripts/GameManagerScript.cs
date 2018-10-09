@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -32,7 +33,6 @@ public class GameManagerScript : MonoBehaviour
     private void Awake()
     {
         _cameraTransfrom = mainCamera.transform;
-      //  if(!dontDisableControl)
     }
 
     private void Start()
@@ -102,23 +102,10 @@ public class GameManagerScript : MonoBehaviour
     private void Victory()
     {
         Debug.Log("YOU WIN");
+        SceneManager.LoadScene("WinScreen");
         WinGame.Invoke();
     }
-    /*
-    private void EnableControls()
-    {
-        adManager.enabled = true;
-        fireWall.enabled = true;
-        fireWallPopup.enabled = true;
-    }
 
-    public void DisableControls()
-    {
-        adManager.enabled = false;
-        fireWall.enabled = false;
-        fireWallPopup.enabled = false;
-    }
-    */
     private IEnumerator CheckVictoryDelay()
     {
         while (true)
@@ -131,14 +118,12 @@ public class GameManagerScript : MonoBehaviour
     private IEnumerator ControlActivationDelay()
     {
         yield return new WaitForSeconds(20);
-      //  EnableControls();
         StartGame.Invoke();
     }
 
     private IEnumerator Gametimer()
     {
         yield return new WaitForSeconds(_gameTimer);
-        // WIN
     }
 
 }

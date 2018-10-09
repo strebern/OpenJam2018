@@ -15,5 +15,6 @@ public class EndGameScoreDisplay : MonoBehaviour
     private void Start()
     {
         _scoreText.text = "" + scoreManager.Score;
+        FindObjectOfType<MusicPlayer>().PlayWinMusic();
     }
 }

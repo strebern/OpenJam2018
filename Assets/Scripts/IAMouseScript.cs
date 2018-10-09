@@ -72,6 +72,7 @@ public class IAMouseScript : MonoBehaviour
                 LoseGame.Invoke();
                 loseScreen.SetActive(true);
                 _currentTarget = Target.TaskManager;
+                FindObjectOfType<MusicPlayer>().PlayLoseMusic();
                 break;
             case Target.TaskManager:
                 FindObjectOfType<TaskManagerScript>().RelocateTaskManager();
